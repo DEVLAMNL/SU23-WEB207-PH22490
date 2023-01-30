@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body ng-app="app-form">
+    <div ng-controller="formController">
+      <!-- Dữ liệu liên quan đến form sẽ được $scope của formController quản lý -->
+      <form action="">
+        <input placeholder="Tên..." ng-model="ten" />
+        <input placeholder="Tuổi..." type="number" ng-model="tuoi" />
+        <button type="button" ng-click="onSubmitForm()">Tạo mới</button>
+      </form>
+    </div>
+    <script src="/libs/angular.min.js"></script>
+    <script>
+      var app = angular.module("app-form", []);
+      app.controller("formController", function ($scope) {
+        $scope.ten = "";
+        $scope.tuoi = 0;
+        $scope.onSubmitForm = function(){
+            console.log($scope.ten, $scope.tuoi);    
+        }
+      });
+    </script>
+  </body>
+</html>
